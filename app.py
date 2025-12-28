@@ -5,19 +5,9 @@ Access at: http://localhost:5000
 """
 
 from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
 import random
 
 app = Flask(__name__)
-CORS(app)
-
-# Add security headers
-@app.after_request
-def add_security_headers(response):
-    response.headers['X-Content-Type-Options'] = 'nosniff'
-    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
 
 # Game state
 game_state = {
